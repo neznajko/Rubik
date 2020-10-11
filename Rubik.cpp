@@ -213,13 +213,35 @@ void moo(char name)
     std::cout << "bOom";
     break; }}
 
+bool ORIG()
+{ /* T H A T S */
+  static vec_t ORIG_F(SIZ, 'G'); // Green
+  static vec_t ORIG_R(SIZ, 'R'); // Red
+  static vec_t ORIG_U(SIZ, 'W'); // White
+  static vec_t ORIG_B(SIZ, 'B'); // Blue
+  static vec_t ORIG_L(SIZ, 'O'); // Orange
+  static vec_t ORIG_D(SIZ, 'Y'); // Yellow
+
+  return ((F == ORIG_F) &&
+          (R == ORIG_R) &&
+          (U == ORIG_U) &&
+          (B == ORIG_B) &&
+          (L == ORIG_L) &&
+          (D == ORIG_D)); }
+
+int conseq(std::string &str)
+{ /* Yea1 */
+  for(int cont = 1; ; ++cont) {
+    for(char c: str) {
+      moo(c); }
+    if( ORIG()) {
+      return cont; }}}
+
 int main(int argc, char *argv[])
 { /* https://rubiks-cu.be/ */
   std::ostream_iterator<char> oi(std::cout, " ");
-  moo('D');
-  moo('D');
-  moo('F');
-  dump_all();
+  std::string str("BLUFF");
+  std::cout << conseq(str);
   puts("ay");
 }
 /////////////////////////////////////////// log:
